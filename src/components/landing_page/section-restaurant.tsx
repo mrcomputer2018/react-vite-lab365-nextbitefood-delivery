@@ -100,7 +100,8 @@ export default function SectionRestaurant() {
                                                 <img
                                                     src={image.src}
                                                     alt={image.alt}
-                                                    className="h-64 w-full object-cover rounded-lg shadow-md transition-transform duration-600 transform hover:scale-105"
+                                                    className="h-64 w-full object-cover rounded-lg shadow-md 
+                                                    transition-transform duration-600 transform hover:scale-105"
                                                 />
                                             </CardContent>
                                         </Card>
