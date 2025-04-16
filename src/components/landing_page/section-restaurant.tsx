@@ -26,24 +26,22 @@ type CarouselImage = {
 };
 
 export default function SectionRestaurant() {
-    const [type, setType] = useState("todos");
+    const [filter, setFilter] = useState("todos");
     const [carouselFiltered, setCarouselFiltered] = useState(carouselImages);
 
-    function handleFilterChange(value: string) {
-        setType(value);
-
-        if (value === "todos") {
+    function handleFilterChange(newFilter: string) {
+        setFilter(newFilter);
+        
+        if (newFilter === "todos") {
             setCarouselFiltered(carouselImages);
         } else {
-            const filteredImages = carouselImages.filter((item) => {
-                item.type?.toLowerCase().includes(value.toLowerCase());
-            });
+            const filteredImages = carouselImages.filter((item) =>
+                item.type?.toLowerCase().includes(newFilter.toLowerCase())
+            );
             setCarouselFiltered(filteredImages);
-
-            console.log(filteredImages);
-            console.log(value);
         }
-    }
+    };
+
 
     return (
         <section className="w-full flex flex-col items-center justify-center pb-16 bg-gray-50">
@@ -61,10 +59,10 @@ export default function SectionRestaurant() {
                             <DropdownMenuLabel>Filtrar por</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup
-                                value={type}
-                                onValueChange={(value) =>
-                                    handleFilterChange(value)
-                                }
+                                 value={filter}
+                                 onValueChange={(value) =>
+                                     handleFilterChange(value)
+                                 }
                             >
                                 <DropdownMenuRadioItem value="todos">
                                     Todos
