@@ -1,10 +1,11 @@
+import { assets } from "@/assets/assets";
 import { Pizza, StoreIcon, TruckIcon, UsersRound } from "lucide-react";
 
 export default function SectionMaoNaMassa() {
     return (
-        <section className="w-full bg-gray-200 pb-16">
-            <div className="w-full max-w-7xl">
-                <div>
+        <section className="w-full bg-gray-200 py-16">
+            <div className="w-full max-w-7xl flex flex-row justify-between items-center mx-auto">
+                <div className="w-1/2">
                     <div className="flex flex-row gap-8 mb-8">
                         <StoreIcon className="w-12 h-12 text-green-600" />
                         <TruckIcon className="w-12 h-12 text-green-600" />
@@ -25,12 +26,11 @@ export default function SectionMaoNaMassa() {
                             melhor para todos os entregadores e construindo uma
                             relação verdadeira com quem escolhe consumir com a
                             gente.
-
                         </p>
                     </div>
                 </div>
-                <div>
-                    <img src="" alt="" />
+                <div className="w-1/2 flex justify-center items-center">
+                    <img src={assets.imageMaonaMassa} alt="" className="max-w-[460px] rounded-lg shadow-md transition-transform duration-600 transform hover:scale-105" />
                 </div>
             </div>
         </section>
