@@ -31,7 +31,7 @@ export default function SectionRestaurant() {
 
     function handleFilterChange(newFilter: string) {
         setFilter(newFilter);
-        
+
         if (newFilter === "todos") {
             setCarouselFiltered(carouselImages);
         } else {
@@ -40,8 +40,7 @@ export default function SectionRestaurant() {
             );
             setCarouselFiltered(filteredImages);
         }
-    };
-
+    }
 
     return (
         <section className="w-full flex flex-col items-center justify-center pb-16 bg-gray-50">
@@ -59,10 +58,10 @@ export default function SectionRestaurant() {
                             <DropdownMenuLabel>Filtrar por</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup
-                                 value={filter}
-                                 onValueChange={(value) =>
-                                     handleFilterChange(value)
-                                 }
+                                value={filter}
+                                onValueChange={(value) =>
+                                    handleFilterChange(value)
+                                }
                             >
                                 <DropdownMenuRadioItem value="todos">
                                     Todos
@@ -85,14 +84,14 @@ export default function SectionRestaurant() {
                 </div>
             </div>
 
-            <div className="mt-16">
+            <div className="container flex flex-row items-center justify-center mt-16">
                 <Carousel className="w-full max-w-7xl">
-                    <CarouselContent>
+                    <CarouselContent className="-ml-1">
                         {carouselFiltered.map(
                             (image: CarouselImage, index: number) => (
                                 <CarouselItem
                                     key={index}
-                                    className="pl-1 md:basis-1/2 lg:basis-1/3"
+                                    className="pl-1 md:basis-1/2 lg:basis-1/4"
                                 >
                                     <div className="p-2">
                                         <Card>
