@@ -39,6 +39,9 @@ export default function SectionRestaurant() {
                 item.type?.toLowerCase().includes(value.toLowerCase());
             });
             setCarouselFiltered(filteredImages);
+
+            console.log(filteredImages);
+            console.log(value);
         }
     }
 
