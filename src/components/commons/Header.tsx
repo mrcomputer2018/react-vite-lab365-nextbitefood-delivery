@@ -2,9 +2,13 @@ import { assets } from "@/assets/assets";
 import { ShoppingCart, User } from "lucide-react";
 import ButtonCustom from "./ButtonCustom";
 
-export default function Header() {
+type HeaderProps = {
+    bgcolor?: string;
+};
+
+export default function Header({bgcolor}: HeaderProps) {
     return (
-        <header className="flex flex-row justify-between items-center container py-6 px-[5%] absolute top-0">
+        <header className="flex flex-row justify-between items-center container py-6 px-[5%] absolute top-0" style={{ backgroundColor: bgcolor }}>
             <div className="flex flex-row items-center space-x-2">
                 <img
                     src={assets.logo}
@@ -35,15 +39,17 @@ export default function Header() {
             </nav>
 
             <div className="flex flex-row items-center space-x-8">
-                <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
                     <User className="w-8 h-8 text-white" />
-                    <span className="text-gray-300">Minha conta</span>
-                </div>
+                    <a href="/signin" className="text-gray-300">
+                        Minha conta
+                    </a>
+                </button>
 
-                <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
                     <ShoppingCart className="w-8 h-8 text-white" />
-                    <span className="text-gray-300">Meu carrinho</span>
-                </div>
+                    <a href="/mycart" className="text-gray-300">Meu carrinho</a>
+                </button>
 
                 <ButtonCustom
                     title="Signup"
