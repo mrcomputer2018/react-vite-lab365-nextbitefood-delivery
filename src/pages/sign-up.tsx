@@ -1,11 +1,11 @@
 import FooterCard from "@/components/commons/footer-card";
-import FormLogin from "@/components/commons/form-login";
+import FormCadastro from "@/components/commons/form-cadastro";
 import Header from "@/components/commons/Header";
 import TitleCard from "@/components/commons/title-card";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-export default function SignIn() {
+export default function SignUp() {
     return (
         <>
             <Header bgcolor="#333" />
@@ -14,12 +14,12 @@ export default function SignIn() {
                 <Card className="w-full max-w-md px-6 py-8 bg-white shadow-md rounded-lg">
                     <CardTitle>
                         <TitleCard
-                            title="login"
-                            description="Por favor entre com as suas credenciais para fazer login."
+                            title="Cadastrar"
+                            description="Por favor inserir seus dados para efetuar seu cadastro."
                         />
                     </CardTitle>
                     <CardContent>
-                        <FormLogin />
+                        <FormCadastro />
 
                         <Separator />
 
