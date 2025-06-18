@@ -36,12 +36,12 @@ export default function Header() {
 
             <div className="flex flex-row items-center space-x-8">
                 <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
-                    <User className="w-8 h-8 text-white" />
+                    <User className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Minha conta</span>
                 </div>
 
                 <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
-                    <ShoppingCart className="w-8 h-8 text-white" />
+                    <ShoppingCart className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Meu carrinho</span>
                 </div>
 
