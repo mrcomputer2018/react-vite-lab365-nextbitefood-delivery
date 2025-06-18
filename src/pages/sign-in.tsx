@@ -5,9 +5,12 @@ import TitleCard from "@/components/commons/title-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft } from "lucide-react";
 
 export default function SignIn() {
+    function handleBackToHome() {
+        window.location.href = "/";
+    }
+
     return (
         <>
             <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
@@ -47,6 +50,7 @@ export default function SignIn() {
 
                         <div className="relative flex items-center justify-center mt-6 w-full">
                             <Button
+                                onClick={handleBackToHome}
                                 variant="ghost"
                                 className="flex flex-row items-center justify-center mb-6 text-gray-800"
                             >
