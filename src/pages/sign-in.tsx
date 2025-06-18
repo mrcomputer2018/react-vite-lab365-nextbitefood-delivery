@@ -1,6 +1,5 @@
 import FooterCard from "@/components/commons/footer-card";
 import FormLogin from "@/components/commons/form-login";
-import Header from "@/components/commons/Header";
 import TitleCard from "@/components/commons/title-card";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -8,9 +7,10 @@ import { Separator } from "@/components/ui/separator";
 export default function SignIn() {
     return (
         <>
-            <Header bgcolor="#333" />
-
             <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+                <div>
+                    
+                </div>
                 <Card className="w-full max-w-md px-6 py-8 bg-white shadow-md rounded-lg">
                     <CardTitle>
                         <TitleCard
@@ -28,9 +28,9 @@ export default function SignIn() {
                                 Não tem uma conta?{" "}
                                 <a
                                     href="/sign-up"
-                                    className="text-blue-500 hover:underline"
+                                    className="text-green-500 hover:underline"
                                 >
-                                    Crie uma agora!
+                                    Cadastre-se!
                                 </a>
                             </p>
                         </div>

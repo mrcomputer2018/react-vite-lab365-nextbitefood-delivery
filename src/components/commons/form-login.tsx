@@ -11,6 +11,8 @@ import {
     FormControl,
     FormMessage,
 } from "../ui/form";
+import { Mail, Lock} from "lucide-react";
+
 
 const formSchema = z.object({
     email: z.string().email("Email inválido").nonempty("Email é obrigatório"),
@@ -41,18 +43,25 @@ export default function FormLogin() {
                     control={form.control}
                     name="email"
                     render={({ field, fieldState }) => (
-                        <FormItem>
+                        <FormItem className="mb-4">
                             <FormLabel>Email</FormLabel>
 
                             <FormControl>
-                                <Input
-                                    type="email"
-                                    placeholder="Digite seu email"
-                                    {...field}
-                                    className={`w-full mt-2 mb-1 ${
-                                        fieldState.error ? "border-red-500" : ""
-                                    }`}
-                                />
+                                <div className="relative">
+                                    <span className="absolute left-0 top-2 pl-3 pointer-events-none">
+                                        <Mail className="text-gray-400 w-5 h-5" />
+                                    </span>
+                                    <Input
+                                        type="email"
+                                        placeholder="Digite seu email..."
+                                        {...field}
+                                        className={`w-full border-green-600/40 placeholder:text-gray-400 mb-1 pl-10 ${
+                                            fieldState.error
+                                                ? "border-red-500"
+                                                : ""
+                                        }`}
+                                    />
+                                </div>
                             </FormControl>
 
                             <FormMessage className="text-red-500">
@@ -66,18 +75,25 @@ export default function FormLogin() {
                     control={form.control}
                     name="senha"
                     render={({ field, fieldState }) => (
-                        <FormItem>
+                        <FormItem className="mb-4">
                             <FormLabel>Senha</FormLabel>
 
                             <FormControl>
-                                <Input
-                                    type="password"
-                                    placeholder="Digite sua senha"
-                                    {...field}
-                                    className={`w-full mt-2 mb-1 ${
-                                        fieldState.error ? "border-red-500" : ""
-                                    }`}
-                                />
+                                <div className="relative">
+                                    <span className="absolute left-0 top-2 pl-3 pointer-events-none">
+                                        <Lock className="text-gray-400 w-5 h-5" />
+                                    </span>
+                                    <Input
+                                        type="password"
+                                        placeholder="Digite sua senha..."
+                                        {...field}
+                                        className={`border-green-600/40 placeholder:text-gray-400 mb-1 pr-10 pl-10 ${
+                                            fieldState.error
+                                                ? "border-red-500"
+                                                : ""
+                                        }`}
+                                    />
+                                </div>
                             </FormControl>
 
                             <FormMessage className="text-red-500">
@@ -89,7 +105,7 @@ export default function FormLogin() {
 
                 <div className="mt-4 w-full">
                     <Button
-                        className="w-full font-bold uppercase"
+                        className="w-full font-bold uppercase bg-green-600 hover:bg-green-600/80 text-white"
                         type="submit"
                     >
                         Entrar
