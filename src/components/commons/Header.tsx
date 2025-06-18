@@ -29,7 +29,7 @@ export default function Header() {
                         <a href="#menu">Menu</a>
                     </li>
                     <li className="text-white">
-                        <a href="#contact">Contact</a>
+                        <a href="#contact">Contato</a>
                     </li>
                 </ul>
             </nav>
