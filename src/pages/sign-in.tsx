@@ -14,15 +14,14 @@ export default function SignIn() {
     return (
         <>
             <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-                <div>
-                    <img
-                        src={assets.logo}
-                        alt="Logo"
-                        className="w-24 h-24 mx-auto mb-10 rounded-full shadow-lg"
-                    />
-                </div>
-
                 <Card className="w-full max-w-md px-6 py-8 bg-white shadow-md rounded-lg">
+                    <div>
+                        <img
+                            src={assets.logo}
+                            alt="Logo"
+                            className="w-24 h-24 mx-auto mb-3 rounded-full shadow-lg"
+                        />
+                    </div>
                     <CardTitle>
                         <TitleCard
                             title="login"
