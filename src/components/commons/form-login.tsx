@@ -11,8 +11,8 @@ import {
     FormControl,
     FormMessage,
 } from "../ui/form";
-import { Mail, Lock} from "lucide-react";
-
+import { Mail, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const formSchema = z.object({
     email: z.string().email("Email inválido").nonempty("Email é obrigatório"),
@@ -103,9 +103,28 @@ export default function FormLogin() {
                     )}
                 />
 
+                <div className="flex items-center justify-between">
+                    <label className="flex items-center">
+                        <input
+                            type="checkbox"
+                            className="rounded border-gray-300 text-orange-500 focus:ring-orange-500"
+                        />
+                        <span className="ml-2 text-sm text-gray-600">
+                            Lembrar de mim
+                        </span>
+                    </label>
+                    <Link
+                        to="/forgot-password"
+                        className="text-sm text-green-600 hover:text-green-700"
+                    >
+                        Esqueci minha senha
+                    </Link>
+                </div>
+
                 <div className="mt-4 w-full">
                     <Button
-                        className="w-full font-bold uppercase bg-green-600 hover:bg-green-600/80 text-white"
+                        className="w-full font-bold uppercase bg-gradient-to-r from-green-600 to-blue-800 
+                        hover:opacity-60 text-white transition-all ease-in-out duration-700 cursor-pointer"
                         type="submit"
                     >
                         Entrar

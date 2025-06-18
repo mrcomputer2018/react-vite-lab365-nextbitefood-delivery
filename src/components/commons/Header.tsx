@@ -40,14 +40,14 @@ export default function Header({bgcolor}: HeaderProps) {
 
             <div className="flex flex-row items-center space-x-8">
                 <button className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
-                    <User className="w-8 h-8 text-white" />
+                    <User className="w-7 h-7 text-white" />
                     <a href="/signin" className="text-gray-300">
                         Minha conta
                     </a>
                 </button>
 
                 <button className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
-                    <ShoppingCart className="w-8 h-8 text-white" />
+                    <ShoppingCart className="w-7 h-7 text-white" />
                     <a href="/mycart" className="text-gray-300">Meu carrinho</a>
                 </button>
 

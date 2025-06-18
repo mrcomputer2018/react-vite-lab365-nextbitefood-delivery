@@ -1,16 +1,24 @@
+import { assets } from "@/assets/assets";
 import FooterCard from "@/components/commons/footer-card";
 import FormLogin from "@/components/commons/form-login";
 import TitleCard from "@/components/commons/title-card";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ArrowLeft } from "lucide-react";
 
 export default function SignIn() {
     return (
         <>
             <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
                 <div>
-                    
+                    <img
+                        src={assets.logo}
+                        alt="Logo"
+                        className="w-24 h-24 mx-auto mb-10 rounded-full shadow-lg"
+                    />
                 </div>
+
                 <Card className="w-full max-w-md px-6 py-8 bg-white shadow-md rounded-lg">
                     <CardTitle>
                         <TitleCard
@@ -36,6 +44,17 @@ export default function SignIn() {
                         </div>
 
                         <FooterCard />
+
+                        <div className="relative flex items-center justify-center mt-6 w-full">
+                            <Button
+                                variant="ghost"
+                                className="flex flex-row items-center justify-center mb-6 text-gray-800"
+                            >
+                                <span className="ml-3 text-md">
+                                    Voltar para o início
+                                </span>
+                            </Button>
+                        </div>
                     </CardContent>
                 </Card>
             </main>
