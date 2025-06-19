@@ -3,6 +3,14 @@ import { ShoppingCart, User } from "lucide-react";
 import ButtonCustom from "./ButtonCustom";
 
 export default function Header() {
+    function handleNavigateToLogin() {
+        window.location.href = "/signin";
+    }
+
+    function handleNavigatetoCart() {
+        window.location.href = "/cart";
+    }
+
     return (
         <header className="flex flex-row justify-between items-center container py-6 px-[5%] absolute top-0">
             <div className="flex flex-row items-center space-x-2">
@@ -35,15 +43,19 @@ export default function Header() {
             </nav>
 
             <div className="flex flex-row items-center space-x-8">
-                <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button 
+                onClick={handleNavigateToLogin}
+                className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
                     <User className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Minha conta</span>
-                </div>
+                </button>
 
-                <div className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button 
+                onClick={handleNavigatetoCart}
+                className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
                     <ShoppingCart className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Meu carrinho</span>
-                </div>
+                </button>
 
                 <ButtonCustom
                     title="Signup"
