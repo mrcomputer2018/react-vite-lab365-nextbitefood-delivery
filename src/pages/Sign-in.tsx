@@ -1,7 +1,9 @@
 import CardImage from "@/components/commons/CardImage";
 import CardTitleForm from "@/components/commons/CardTitleForm";
+import FooterCard from "@/components/commons/footer-card";
+import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
 import LoginForm from "@/components/landing_page/LoginForm";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function SignInPàge() {
     return (
@@ -14,7 +16,13 @@ export default function SignInPàge() {
 
                 <CardContent>
                     <LoginForm />
+
+                    <NavigationLinkScreen />
                 </CardContent>
+
+                <CardFooter>
+                    <FooterCard />
+                </CardFooter>
             </Card>
         </main>
     );

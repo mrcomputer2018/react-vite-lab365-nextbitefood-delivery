@@ -9,7 +9,7 @@ export default function CardTitleForm({ title, description }: CardTitleFormProps
     return (
         <CardTitle>
             <h2 className="text-3xl font-bold uppercase">{title}</h2>
-            <CardDescription className="text-md mt-2">
+            <CardDescription className="text-md mt-2 text-gray-600">
                 {description}
             </CardDescription>
         </CardTitle>

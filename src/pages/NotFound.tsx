@@ -7,7 +7,7 @@ export default function NotFoundPage() {
             <p className="mt-4 text-lg text-gray-600">
                 A página que você está procurando não existe.
             </p>
-            <a href="/" className="mt-6 text-blue-500 hover:underline">
+            <a href="/" className="mt-6 text-green-600 hover:underline">
                 Voltar para a página inicial
             </a>
         </div>
