@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 
-export default function NavigationLinkScreen() {
+interface NavigationLinkScreenProps {
+    to: string;
+    text: string;
+    path: string;
+}
+
+export default function NavigationLinkScreen({to, text, path}: NavigationLinkScreenProps) {
     return (
         <div className="mt-4">
             <p className="text-center text-gray-600 text-sm">
-                Não tem uma conta?{" "}
-                <Link to="sign-up" className="text-green-600 hover:underline">
-                    Cadastre-se aqui.
+                {to}{" "}
+                <Link to={path} className="text-green-600 hover:underline">
+                    {text}
                 </Link>
             </p>
         </div>

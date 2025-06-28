@@ -1,24 +1,42 @@
 import { Eye, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import ButtonCustom from "../commons/ButtonCustom";
+import { Input } from "../ui/input";
 
 export default function LoginForm() {
     return (
         <form>
             <div className="mb-4">
-                <label htmlFor="">E-mail</label>
-
-                <div className="flex flex-row items-center justify-start gap-2">
+                <label htmlFor="">
+                    E-mail
+                </label>
+                <div
+                    className="flex flex-row items-center justify-start gap-1 
+                border border-green-600 px-2 rounded-lg mt-1"
+                >
                     <Mail className="h-5 w-5 text-gray-400" />
-                    <input type="email" placeholder="Digite seu email..." />
+                    <Input
+                        type="email"
+                        placeholder="Digite seu email..."
+                        className="border-none focus-visible:border-ring-none focus-visible:ring-0"
+                    />
                 </div>
             </div>
 
             <div className="mb-4">
-                <label htmlFor="">Senha</label>
-                <div className="flex flex-row items-center justify-start gap-2">
+                <label htmlFor="">
+                    Senha
+                </label>
+                <div
+                    className="flex flex-row items-center justify-start gap-1 
+                border border-green-600 px-2 rounded-lg mt-1"
+                >
                     <Eye className="h-5 w-5 text-gray-400" />
-                    <input type="password" placeholder="Digite sua senha..." />
+                    <Input
+                        type="password"
+                        placeholder="Digite sua senha..."
+                        className="border-none focus-visible:border-ring-none focus-visible:ring-0"
+                    />
                 </div>
             </div>
 
