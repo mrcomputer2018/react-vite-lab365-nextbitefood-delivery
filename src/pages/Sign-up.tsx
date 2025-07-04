@@ -20,7 +20,7 @@ export default function SignUpPage() {
                 <CardContent>
                     <RegisterForm />
 
-                    <NavigationLinkScreen to="Ja tem uma conta?" text="Faça login." path="signup"/>
+                    <NavigationLinkScreen to="Ja tem uma conta?" text="Faça login." path="/signin"/>
                 </CardContent>
 
                 <CardFooter className="flex flex-col items-center justify-center gap-8">

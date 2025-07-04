@@ -20,7 +20,7 @@ export default function SignInPàge() {
                 <CardContent>
                     <LoginForm />
 
-                    <NavigationLinkScreen to="Não tem uma conta?" text="Cadastre-se aqui." path="sigin"/>
+                    <NavigationLinkScreen to="Não tem uma conta?" text="Cadastre-se aqui." path="/signup"/>
                 </CardContent>
 
                 <CardFooter className="flex flex-col items-center justify-center gap-8">
