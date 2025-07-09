@@ -1,6 +1,6 @@
 import { assets } from "@/assets/assets";
 import Header from "../commons/Header";
-import ButtonCustom from "../commons/ButtonCustom";
+import ButtonCustom from "../commons/button-custom";
 
 export default function Hero() {
     return (

@@ -1,6 +1,6 @@
 import { assets } from "@/assets/assets";
 import { ShoppingCart, User } from "lucide-react";
-import ButtonCustom from "./ButtonCustom";
+import ButtonCustom from "./button-custom";
 
 export default function Header() {
     function handleNavigateToLogin() {
@@ -43,16 +43,18 @@ export default function Header() {
             </nav>
 
             <div className="flex flex-row items-center space-x-8">
-                <button 
-                onClick={handleNavigateToLogin}
-                className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button
+                    onClick={handleNavigateToLogin}
+                    className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1"
+                >
                     <User className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Minha conta</span>
                 </button>
 
-                <button 
-                onClick={handleNavigatetoCart}
-                className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1">
+                <button
+                    onClick={handleNavigatetoCart}
+                    className="text-white flex flex-col items-center text-xs tracking-[1px] gap-1"
+                >
                     <ShoppingCart className="w-7 h-7 text-white" />
                     <span className="text-gray-300">Meu carrinho</span>
                 </button>

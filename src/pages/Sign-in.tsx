@@ -3,7 +3,7 @@ import CardImage from "@/components/commons/CardImage";
 import CardTitleForm from "@/components/commons/CardTitleForm";
 import LoginSocial from "@/components/commons/login/login-social";
 import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
-import LoginForm from "@/components/landing_page/LoginForm";
+import LoginForm from "@/components/commons/LoginForm";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function SignInPàge() {
@@ -20,7 +20,11 @@ export default function SignInPàge() {
                 <CardContent>
                     <LoginForm />
 
-                    <NavigationLinkScreen to="Não tem uma conta?" text="Cadastre-se aqui." path="/signup"/>
+                    <NavigationLinkScreen
+                        to="Não tem uma conta?"
+                        text="Cadastre-se aqui."
+                        path="/signup"
+                    />
                 </CardContent>
 
                 <CardFooter className="flex flex-col items-center justify-center gap-8">
