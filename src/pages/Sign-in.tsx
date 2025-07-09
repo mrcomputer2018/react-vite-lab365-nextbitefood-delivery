@@ -3,7 +3,7 @@ import CardImage from "@/components/commons/CardImage";
 import CardTitleForm from "@/components/commons/CardTitleForm";
 import LoginSocial from "@/components/commons/login/login-social";
 import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
-import LoginForm from "@/components/commons/LoginForm";
+import LoginForm from "@/components/commons/login-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function SignInPàge() {
