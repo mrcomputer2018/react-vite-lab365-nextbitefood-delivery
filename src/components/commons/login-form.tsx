@@ -1,62 +1,149 @@
-import { Eye, Mail } from "lucide-react";
+import { Eye, EyeOff, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import ButtonCustom from "./button-custom";
 import { Input } from "../ui/input";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "../ui/form";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+
+const loginFormSchema = z.object({
+    email: z.string().email("Email inválido").nonempty("Email é obrigatório"),
+    senha: z
+        .string()
+        .min(8, "Senha deve ter pelo menos 8 caracteres")
+        .max(20, "Senha deve ter no máximo 20 caracteres")
+        .nonempty("Senha é obrigatória"),
+});
 
 export default function LoginForm() {
+    const [viewPassword, setViewPassword] = useState<boolean>(false);
+
+    const form = useForm<z.infer<typeof loginFormSchema>>({
+        resolver: zodResolver(loginFormSchema),
+        defaultValues: {
+            email: "",
+            senha: "",
+        },
+    });
+
+    function togglePasswordVisibility() {
+        setViewPassword(!viewPassword);
+    }
+
+    function onSubmit(data: z.infer<typeof loginFormSchema>) {
+        localStorage.setItem("@user", "logged");
+        console.log("Dados do formulário: ", data);
+        form.reset();
+        window.location.href= "/dashboard";
+    }
+
     return (
-        <form>
-            <div className="mb-4">
-                <label htmlFor="">E-mail</label>
-                <div
-                    className="flex flex-row items-center justify-start gap-1 
-                border border-green-600 px-2 rounded-lg mt-1"
-                >
-                    <Mail className="h-5 w-5 text-gray-400" />
-                    <Input
-                        type="email"
-                        placeholder="Digite seu email..."
-                        className="border-none focus-visible:border-ring-none focus-visible:ring-0"
-                    />
-                </div>
-            </div>
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="mt-4">
+                {/* email */}
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field, fieldState }) => (
+                        <FormItem className="mb-3">
+                            <FormLabel>E-mail</FormLabel>
 
-            <div className="mb-4">
-                <label htmlFor="">Senha</label>
-                <div
-                    className="flex flex-row items-center justify-start gap-1 
-                border border-green-600 px-2 rounded-lg mt-1"
-                >
-                    <Eye className="h-5 w-5 text-gray-400" />
-                    <Input
-                        type="password"
-                        placeholder="Digite sua senha..."
-                        className="border-none focus-visible:border-ring-none focus-visible:ring-0"
-                    />
-                </div>
-            </div>
+                            <FormControl>
+                                <div className="relative">
+                                    <span className="absolute left-0 top-2 pl-3 pointer-events-none">
+                                        <Mail className="w-5 h-5 text-gray-400" />
+                                    </span>
+                                    <Input
+                                        type="email"
+                                        placeholder="Digite seu email..."
+                                        {...field}
+                                        className={`w-full border-green-600/40 placeholder:text-gray-400 mb-1 
+                                    pl-10 ${
+                                        fieldState.error ? "border-red-500" : ""
+                                    }`}
+                                    />
+                                </div>
+                            </FormControl>
 
-            <div className="flex flex-row items-center justify-between mb-4">
-                <label className="text-sm">
-                    <input type="checkbox" className="mr-2" />
-                    Lembrar de mim
-                </label>
-
-                <Link
-                    to="/forgot-password"
-                    className="text-sm text-green-500 hover:text-green-700"
-                >
-                    Esqueci minha senha
-                </Link>
-            </div>
-
-            <div>
-                <ButtonCustom
-                    title="Entrar"
-                    color="bg-gradient-to-r from-green-600 to-blue-800"
-                    width="w-full"
+                            <FormMessage>
+                                {fieldState.error?.message}
+                            </FormMessage>
+                        </FormItem>
+                    )}
                 />
-            </div>
-        </form>
+
+                {/* email */}
+                <FormField
+                    control={form.control}
+                    name="senha"
+                    render={({ field, fieldState }) => (
+                        <FormItem className="mb-3">
+                            <FormLabel>Senha</FormLabel>
+
+                            <FormControl>
+                                <div className="relative">
+                                    <span
+                                        className="absolute left-0 top-2 pl-3 z-20"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {viewPassword ? (
+                                            <EyeOff className="w-5 h-5 text-gray-400" />
+                                        ) : (
+                                            <Eye className="w-5 h-5 text-gray-400" />
+                                        )}
+                                    </span>
+                                    <Input
+                                        type={
+                                            viewPassword ? "text" : "password"
+                                        }
+                                        placeholder="Digite sua senha..."
+                                        {...field}
+                                        className={`w-full border-green-600/40 placeholder:text-gray-400 mb-1 
+                                    pl-10 ${
+                                        fieldState.error ? "border-red-500" : ""
+                                    }`}
+                                    />
+                                </div>
+                            </FormControl>
+
+                            <FormMessage>
+                                {fieldState.error?.message}
+                            </FormMessage>
+                        </FormItem>
+                    )}
+                />
+
+                <div className="flex flex-row items-center justify-between mb-4">
+                    <label className="text-sm">
+                        <input type="checkbox" className="mr-2" />
+                        Lembrar de mim
+                    </label>
+
+                    <Link
+                        to="/forgot-password"
+                        className="text-sm text-green-500 hover:text-green-700"
+                    >
+                        Esqueci minha senha
+                    </Link>
+                </div>
+
+                <div>
+                    <ButtonCustom
+                        title="Entrar"
+                        color="bg-gradient-to-r from-green-600 to-blue-800"
+                        width="w-full"
+                    />
+                </div>
+            </form>
+        </Form>
     );
 }

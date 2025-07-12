@@ -5,8 +5,15 @@ import LoginSocial from "@/components/commons/login/login-social";
 import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
 import LoginForm from "@/components/commons/login-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function SignInPàge() {
+    const isAuthenticated = useAuth().isAuthenticated;
+
+    if (isAuthenticated) {
+        window.location.href = "/dashboard";
+    }
+
     return (
         <main className=" flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <Card className="py-8 px-4">
