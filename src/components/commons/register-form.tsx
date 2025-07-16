@@ -37,7 +37,13 @@ const loginFormSchema = z
             .string()
             .nonempty("A confirmação de senha é obrigatória"),
     })
-    .refine((data) => data.senha === data.confirmarSenha);
+    .refine(
+        (data) => data.senha === data.confirmarSenha,
+        {
+            message: "As senhas não coincidem",
+            path: ["confirmarSenha"],
+        }
+    );
 
 export default function RegisterForm() {
     const form = useForm<z.infer<typeof loginFormSchema>>({
