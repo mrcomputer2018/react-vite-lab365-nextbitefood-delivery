@@ -14,6 +14,8 @@ import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useAuth } from "@/contexts/auth-context";
+
 
 const loginFormSchema = z.object({
     email: z.string().email("Email inválido").nonempty("Email é obrigatório"),
@@ -25,6 +27,7 @@ const loginFormSchema = z.object({
 });
 
 export default function LoginForm() {
+    const { signIn } = useAuth();
     const [viewPassword, setViewPassword] = useState<boolean>(false);
 
     const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -40,10 +43,12 @@ export default function LoginForm() {
     }
 
     function onSubmit(data: z.infer<typeof loginFormSchema>) {
-        localStorage.setItem("@user", "logged");
-        console.log("Dados do formulário: ", data);
+        const senha = data.senha;
+        const email = data.email;
+
+        signIn(email, senha);
+
         form.reset();
-        window.location.href= "/dashboard";
     }
 
     return (

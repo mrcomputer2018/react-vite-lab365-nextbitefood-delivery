@@ -1,4 +1,4 @@
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "../contexts/auth-context";
 import { JSX } from "react";
 import { Navigate } from "react-router-dom";
 
@@ -7,7 +7,11 @@ interface PrivateRouteProps {
 }
 
 export function PrivateRoute({children}: PrivateRouteProps) {
-    const { isAuthenticated } = useAuth();
+    const { user } = useAuth();
 
-    return isAuthenticated ? children : <Navigate to="/signin" replace />;
+    if (!user) {
+        return <Navigate to="/" replace />;
+    }
+
+    return children
 }

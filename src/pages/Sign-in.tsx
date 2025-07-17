@@ -5,15 +5,17 @@ import LoginSocial from "@/components/commons/login/login-social";
 import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
 import LoginForm from "@/components/commons/login-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useAuth } from "@/hooks/useAuth";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "@/contexts/auth-context";
 
-export default function SignInPàge() {
-    const isAuthenticated = useAuth().isAuthenticated;
+export default function SignInPage() {
 
-    if (isAuthenticated) {
-        window.location.href = "/dashboard";
+    const { user } = useAuth();
+
+    if (user) {
+        return <Navigate to="/dashboard" replace />;
     }
-
+   
     return (
         <main className=" flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <Card className="py-8 px-4">
