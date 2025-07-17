@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function Dashboard() {
     function handleLogout() {
         localStorage.removeItem("@user");
@@ -5,9 +7,9 @@ export default function Dashboard() {
     }
 
     return (
-        <div>
-            <h1>Área privada - Dashboard</h1>
-            <button onClick={handleLogout}>Sair</button>
+        <div className="flex flex-col items-center justify-center h-screen w-full">
+            <h1 className="text-2xl mb-4">Área privada - Dashboard</h1>
+            <Button onClick={handleLogout}>Sair</Button>
         </div>
     );
 }
