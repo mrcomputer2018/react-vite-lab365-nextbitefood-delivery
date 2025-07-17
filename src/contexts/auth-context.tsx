@@ -7,6 +7,7 @@ import {
     useEffect,
     useState,
 } from "react";
+import { redirect } from "react-router-dom";
 import { toast } from "sonner";
 
 interface AuthProviderProps {
@@ -63,6 +64,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 );
 
                 setLoading(false);
+
+                redirect("/dashboard");
 
                 toast("Sucesso!!!", {
                     description: "Login realizado com sucesso",
