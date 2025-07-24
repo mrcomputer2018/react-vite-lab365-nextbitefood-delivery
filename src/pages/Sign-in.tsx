@@ -6,7 +6,7 @@ import NavigationLinkScreen from "@/components/commons/navigation-link-screen";
 import LoginForm from "@/components/commons/login-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "../contexts/auth-context";
 
 export default function SignInPage() {
 
