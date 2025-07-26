@@ -61,7 +61,7 @@ export default function Header() {
 
                 <ButtonCustom
                     title="Signup"
-                    color="bg-transparent"
+                    variant="ghost"
                     border=" border border-2 border-green-600 rounded-full"
                 />
             </div>

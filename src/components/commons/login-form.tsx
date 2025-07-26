@@ -144,8 +144,9 @@ export default function LoginForm() {
                 <div>
                     <ButtonCustom
                         title="Entrar"
-                        color="bg-gradient-to-r from-green-600 to-blue-800"
                         width="w-full"
+                        variant="gradient"
+                        alignment="justify-center"
                     />
                 </div>
             </form>

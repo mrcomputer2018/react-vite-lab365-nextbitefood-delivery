@@ -1,4 +1,4 @@
-import { getData, storeData } from "@/services/storage";
+import { clearStorage, getData, storeData } from "@/services/storage";
 import { Bell, XCircle } from "lucide-react";
 import {
     createContext,
@@ -18,6 +18,7 @@ interface AuthContextData {
     user: User | null;
     signIn: (email: string, senha: string) => void;
     loading: boolean;
+    signOut: () => void;
 }
 
 type User = {
@@ -87,8 +88,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }, 2000);
     }
 
+    async function signOut() {
+        await clearStorage();
+        setUser(null);
+        toast("Sucesso!!!", {
+            description: "Logout realizado com sucesso",
+            duration: 5000,
+            position: "top-right",
+            icon: <Bell />,
+            style: { backgroundColor: "#4caf50", color: "#fff" },
+        });
+    }
+
     return (
-        <AuthContext.Provider value={{ user, signIn, loading }}>
+        <AuthContext.Provider value={{ user, signIn, loading, signOut }}>
             {children}
         </AuthContext.Provider>
     );

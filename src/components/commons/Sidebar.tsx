@@ -1,11 +1,17 @@
 import { assets } from "@/assets/assets";
 import ButtonCustom from "./button-custom";
-import { LogOutIcon } from "lucide-react";
+import { Heart, LogOutIcon, ShoppingCart, User, Utensils } from "lucide-react";
+import { useAuth } from "@/contexts/auth-context";
+import { useNavigate } from "react-router-dom";
+import { FaTasks } from "react-icons/fa";
 
 export default function Sidebar() {
+    const { signOut } = useAuth();
+    const navigate = useNavigate();
+
     function handleLogout() {
-        localStorage.removeItem("@user");
-        window.location.href = "/signin";
+        signOut();
+        navigate("/", { replace: true });
     }
 
     return (
@@ -19,8 +25,32 @@ export default function Sidebar() {
                     />
                     <h1 className="text-lg font-bold">Nextbite Food</h1>
                 </div>
-                <div>
-                    <button>Perfil</button>
+                <div className="flex flex-col gap-2 items-start p-2 mt-4">
+                    <ButtonCustom
+                        title="Perfil"
+                        variant="selected"
+                        icon={<User className="w-5 h-5 mr-2" />}
+                    />
+                    <ButtonCustom
+                        title="Meu Carrinho"
+                        variant="unselected"
+                        icon={<ShoppingCart className="w-5 h-5 mr-2" />}
+                    />
+                    <ButtonCustom
+                        title="Meu Pediddos"
+                        variant="unselected"
+                        icon={<FaTasks className="w-5 h-5 mr-2" />}
+                    />
+                    <ButtonCustom
+                        title="Restaurantes"
+                        variant="unselected"
+                        icon={<Utensils className="w-5 h-5 mr-2" />}
+                    />
+                    <ButtonCustom
+                        title="Favoritos"
+                        variant="unselected"
+                        icon={<Heart className="w-5 h-5 mr-2" />}
+                    />
                 </div>
             </div>
             <div className=" border-t border-gray-200 p-2">
@@ -28,7 +58,7 @@ export default function Sidebar() {
                     title="Sair"
                     action={handleLogout}
                     icon={<LogOutIcon className="w-5 h-5 mr-2" />}
-                    color="bg-gradient-to-r from-green-600 to-blue-800"
+                    variant="gradient"
                     width="w-full"
                     alignment="items-center justify-start"
                 />
