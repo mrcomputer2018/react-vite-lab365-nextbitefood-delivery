@@ -24,7 +24,7 @@ export default function ButtonCustom({
 
     function getVariantClasses() {
         if (variant === "selected") {
-            return "bg-green-600/10 text-green-600 font-bold";
+            return "bg-green-600/10 text-green-600 font-semibold";
         } else if (variant === "unselected") {
             return "text-[#9A9C9F] hover:bg-green-600/10 hover:text-green-600 font-semibold";
         } else if (variant === "gradient") {
