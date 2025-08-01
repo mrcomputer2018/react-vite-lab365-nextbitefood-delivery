@@ -5,6 +5,7 @@ import carousel_2 from "./carousel_2.jpeg";
 import carousel_3 from "./carousel_3.jpeg";
 import carousel_4 from "./carousel_4.jpeg";
 import imageMaonaMassa from "./image_maonamassa.jpeg";
+import user_image from "./afro.jpg"
 
 export const assets = {
     logo,
@@ -14,6 +15,7 @@ export const assets = {
     carousel_3,
     carousel_4,
     imageMaonaMassa,
+    user_image
 };
 
 export const carouselImages = [

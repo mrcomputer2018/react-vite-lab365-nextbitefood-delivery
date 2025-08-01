@@ -60,7 +60,7 @@ export default function Header() {
                 </button>
 
                 <ButtonCustom
-                    title="Signup"
+                    title="Cadastre-se"
                     variant="ghost"
                     border=" border border-2 border-green-600 rounded-full"
                 />

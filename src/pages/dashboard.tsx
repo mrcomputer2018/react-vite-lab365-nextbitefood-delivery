@@ -6,9 +6,9 @@ export default function Dashboard() {
         <div className="flex flex-row items-start justify-start h-screen w-full">
             <Sidebar />
 
-            <div>
+            <div className="w-full">
                 <HeaderDashboard />
-                <section></section>
+                <section className="bg-gray-100"></section>
             </div>
         </div>
     );

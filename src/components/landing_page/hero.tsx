@@ -22,8 +22,9 @@ export default function Hero() {
 
                 <ButtonCustom
                     title="Baixe o app"
-                    color="bg-green-600"
-                    border="w-[200px] rounded-md elevation-2"
+                    variant="primary"
+                    width="w-[200px]"
+                    alignment="justify-center"
                 />
             </div>
         </section>
