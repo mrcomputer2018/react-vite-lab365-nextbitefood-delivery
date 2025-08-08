@@ -22,6 +22,8 @@ interface AuthContextData {
 }
 
 type User = {
+    id: string;
+    name: string;
     email: string;
     profile: string;
 };
@@ -52,6 +54,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setTimeout(async () => {
             if (email === "user@user.com" && senha === "12345678") {
                 setUser({
+                    id: "1",
+                    name: "Wagner Santos",
                     email,
                     profile: "user",
                 });

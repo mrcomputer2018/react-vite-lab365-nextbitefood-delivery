@@ -3,7 +3,7 @@ import { Heart, MapPin, Search, ShoppingCart } from "lucide-react";
 
 export default function HeaderDashboard() {
     return (
-        <header className="w-full py-6 px-4 border-b border-gray-200 flex flex-row justify-between items-center bg-gray-100">
+        <header className="w-full py-4 px-4 border-b border-gray-200 flex flex-row justify-between items-center bg-gray-100">
             <div className="flex flex-row">
                 <span>dashboard {">"} </span>
                 <span className="font-bold">perfil</span>

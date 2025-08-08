@@ -4,7 +4,8 @@ import NotFound from "./pages/NotFound";
 import SignIn from "./pages/Sign-in";
 import SignUp from "./pages/Sign-up";
 import { PrivateRoute } from "./routes/PrivateRoute";
-import Dashboard from "./pages/dashboard";
+import DashboardLayout from "./routes/dashboard-layout";
+import ProfilePage from "./pages/profile";
 
 export default function App() {
     return (
@@ -21,10 +22,13 @@ export default function App() {
                     path="/dashboard"
                     element={
                         <PrivateRoute>
-                            <Dashboard />
+                            <DashboardLayout />
                         </PrivateRoute>
                     }
-                />    
+                >
+                    <Route index element={<ProfilePage/>} />
+                    {/* <Route path="settings" element={<Settings />} /> */}
+                </Route>
             </Routes>
         </BrowserRouter>
     );
