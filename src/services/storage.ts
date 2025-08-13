@@ -1,4 +1,5 @@
-export const storeData = async (key: string, value: string) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const storeData = async (key: string, value: any) => {
     try {
         const jsonValue = JSON.stringify(value);
         await localStorage.setItem(key, jsonValue);

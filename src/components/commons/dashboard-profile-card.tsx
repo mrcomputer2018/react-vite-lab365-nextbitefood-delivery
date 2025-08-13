@@ -19,6 +19,12 @@ export default function DashboardProfileCard() {
                 <span className="text-[10px] bg-black text-white rounded-full px-2 py-1 mt-3">
                     Cliente desde janeiro de 2025
                 </span>
+                <div className="mt-8 flex flex-col items-center">
+                    <span className="font-bold text-3xl">47</span>
+                    <span className="text-muted-foreground">
+                        Pedidos realizados
+                    </span>
+                </div>
             </div>
         </div>
     );

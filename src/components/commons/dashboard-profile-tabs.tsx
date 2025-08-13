@@ -1,6 +1,7 @@
 import { CreditCard, MapPin, ShoppingCart, User } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import ProfileTab from "./profile-tab";
+import DashboardAddressTab from "./dashboard-address-tab";
 
 export default function DashboardProfileTabs() {
     return (
@@ -27,7 +28,7 @@ export default function DashboardProfileTabs() {
                 <ProfileTab />
             </TabsContent>
             <TabsContent value="addresses">
-                Change your addresses here.
+                <DashboardAddressTab />
             </TabsContent>
             <TabsContent value="payments">
                 Change your payment methods here.
