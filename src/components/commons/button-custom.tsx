@@ -8,7 +8,7 @@ type ButtonCustomProps = {
     action?: () => void;
     icon?: React.ReactNode;
     alignment?: string;
-    variant?: "default" | "selected" | "unselected" | "gradient" | "ghost" | "primary";
+    variant?: "default" | "selected" | "unselected" | "gradient" | "ghost" | "primary" | "black";
 };
 
 export default function ButtonCustom({
@@ -34,6 +34,9 @@ export default function ButtonCustom({
         }
         else if (variant === "primary") {
             return "bg-green-600 text-white hover:opacity-80 font-bold elevation-2 justify-center";
+        }
+        else if (variant === "black") {
+            return "bg-zinc-800 text-white hover:opacity-80 elevation-2 justify-center";
         }
         return null;
     }
