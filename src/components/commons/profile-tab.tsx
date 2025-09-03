@@ -2,6 +2,7 @@ import { useState } from "react";
 import ButtonCustom from "./button-custom";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import HeaderTabs from "./header-tabs";
 
 export default function ProfileTab() {
     const [name, setName] = useState<string>("");
@@ -16,13 +17,19 @@ export default function ProfileTab() {
 
     return (
         <form onSubmit={handleSaveProfile}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <HeaderTabs
+                title="Meu perfil"
+                subtitle="AQdicione ou edite aqui o seu perfi."
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mt-6">
                 <div>
                     <Label className="mb-2">Nome completo</Label>
                     <Input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        placeholder="digite seu nome..."
                     />
                 </div>
                 <div>
@@ -31,6 +38,7 @@ export default function ProfileTab() {
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        placeholder="digite seu e-mail..."
                     />
                 </div>
             </div>
@@ -41,12 +49,13 @@ export default function ProfileTab() {
                         type="text"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        placeholder="digite seu telefone..."
                     />
                 </div>
                 <div>
                     <Label className="mb-2">Data de nascimento</Label>
                     <Input
-                        type="text"
+                        type="date"
                         value={birthDate}
                         onChange={(e) => setBirthDate(e.target.value)}
                     />
