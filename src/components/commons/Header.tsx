@@ -8,7 +8,7 @@ export default function Header() {
     }
 
     function handleNavigatetoCart() {
-        window.location.href = "/cart";
+        window.location.href = "/mycart";
     }
 
     return (
