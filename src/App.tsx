@@ -6,6 +6,7 @@ import SignUp from "./pages/Sign-up";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import DashboardLayout from "./routes/dashboard-layout";
 import ProfilePage from "./pages/profile";
+import Mycart from "./pages/my-cart";
 
 export default function App() {
     return (
@@ -19,7 +20,7 @@ export default function App() {
 
                 {/* Rota Privada */}
                 <Route
-                    path="/dashboard"
+                    path="/profile"
                     element={
                         <PrivateRoute>
                             <DashboardLayout />
@@ -27,7 +28,18 @@ export default function App() {
                     }
                 >
                     <Route index element={<ProfilePage/>} />
-                    {/* <Route path="settings" element={<Settings />} /> */}
+                    <Route path="profile" element={<ProfilePage />} />
+                </Route>
+
+                <Route
+                    path="/mycart"
+                    element={
+                        <PrivateRoute>
+                            <DashboardLayout />
+                        </PrivateRoute>
+                    }
+                >
+                    <Route index element={<Mycart/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

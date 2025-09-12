@@ -14,6 +14,14 @@ export default function Sidebar() {
         navigate("/", { replace: true });
     }
 
+    function handleNavigateToProfile() {
+        navigate("/profile")
+    }
+
+    function handleNavigateToMycart() {
+        navigate("/mycart")
+    }
+
     return (
         <aside className="flex flex-col max-w-60 h-screen bg-white w-full justify-between">
             <div className="px-2 py-4">
@@ -30,11 +38,13 @@ export default function Sidebar() {
                         title="Perfil"
                         variant="selected"
                         icon={<User className="w-5 h-5 mr-2" />}
+                        action={handleNavigateToProfile}
                     />
                     <ButtonCustom
                         title="Meu Carrinho"
                         variant="unselected"
                         icon={<ShoppingCart className="w-5 h-5 mr-2" />}
+                        action={handleNavigateToMycart}
                     />
                     <ButtonCustom
                         title="Meu Pediddos"

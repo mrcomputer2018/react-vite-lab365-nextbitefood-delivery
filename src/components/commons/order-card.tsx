@@ -30,13 +30,13 @@ export default function OrderCard() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col justify-center gap-2">
+                <div className="flex flex-col justify-start gap-2">
                     <div className="flex flex-row justify-end">
-                        <span className="font-bold text-green-600 text-2xl">R$ 129,69</span>
+                        <span className="font-bold text-green-600 text-xl">R$ 129,69</span>
                     </div>
                     
                     <div className="flex flex-row gap-6">
-                        <ButtonCustom title="Ver detalhes" variant="ghost-black"/>
+                        <ButtonCustom title="Ver detalhes" variant="ghost-white"/>
                         <ButtonCustom title="Pedir novamente" variant="black"/>
                     </div>
                 </div>
