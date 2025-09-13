@@ -7,6 +7,7 @@ import { PrivateRoute } from "./routes/PrivateRoute";
 import DashboardLayout from "./routes/dashboard-layout";
 import ProfilePage from "./pages/profile";
 import Mycart from "./pages/my-cart";
+import RestaurantsPage from "./pages/restaurants";
 
 export default function App() {
     return (
@@ -20,7 +21,7 @@ export default function App() {
 
                 {/* Rota Privada */}
                 <Route
-                    path="/profile"
+                    path="/perfil"
                     element={
                         <PrivateRoute>
                             <DashboardLayout />
@@ -28,11 +29,11 @@ export default function App() {
                     }
                 >
                     <Route index element={<ProfilePage/>} />
-                    <Route path="profile" element={<ProfilePage />} />
+                    <Route path="perfil" element={<ProfilePage />} />
                 </Route>
 
                 <Route
-                    path="/mycart"
+                    path="/meucarrinho"
                     element={
                         <PrivateRoute>
                             <DashboardLayout />
@@ -40,6 +41,17 @@ export default function App() {
                     }
                 >
                     <Route index element={<Mycart/>} />
+                </Route>
+
+                <Route
+                    path="/restaurantes"
+                    element={
+                        <PrivateRoute>
+                            <DashboardLayout />
+                        </PrivateRoute>
+                    }
+                >
+                    <Route index element={<RestaurantsPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

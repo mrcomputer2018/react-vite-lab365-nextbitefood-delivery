@@ -2,12 +2,17 @@ import { assets } from "@/assets/assets";
 import ButtonCustom from "./button-custom";
 import { Heart, LogOutIcon, ShoppingCart, User, Utensils } from "lucide-react";
 import { useAuth } from "@/contexts/auth-context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaTasks } from "react-icons/fa";
 
 export default function Sidebar() {
     const { signOut } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    function isActive(path: string): boolean {
+        return location.pathname === path;
+    }
 
     function handleLogout() {
         signOut();
@@ -15,11 +20,15 @@ export default function Sidebar() {
     }
 
     function handleNavigateToProfile() {
-        navigate("/profile")
+        navigate("/perfil")
     }
 
     function handleNavigateToMycart() {
-        navigate("/mycart")
+        navigate("/meucarrinho")
+    }
+
+    function handleNavigateToRestaurants() {
+        navigate("/restaurantes")
     }
 
     return (
@@ -36,15 +45,15 @@ export default function Sidebar() {
                 <div className="flex flex-col gap-2 items-start p-2 mt-4">
                     <ButtonCustom
                         title="Perfil"
-                        variant="selected"
+                        variant={isActive("/perfil") ? "selected" : "unselected"}
                         icon={<User className="w-5 h-5 mr-2" />}
                         action={handleNavigateToProfile}
                     />
                     <ButtonCustom
-                        title="Meu Carrinho"
-                        variant="unselected"
-                        icon={<ShoppingCart className="w-5 h-5 mr-2" />}
-                        action={handleNavigateToMycart}
+                        title="Restaurantes"
+                        variant={isActive("/restaurantes") ? "selected" : "unselected"}
+                        icon={<Utensils className="w-5 h-5 mr-2" />}
+                        action={handleNavigateToRestaurants}
                     />
                     <ButtonCustom
                         title="Meu Pediddos"
@@ -52,10 +61,11 @@ export default function Sidebar() {
                         icon={<FaTasks className="w-5 h-5 mr-2" />}
                     />
                     <ButtonCustom
-                        title="Restaurantes"
-                        variant="unselected"
-                        icon={<Utensils className="w-5 h-5 mr-2" />}
-                    />
+                        title="Meu Carrinho"
+                        variant={isActive("/meucarrinho") ? "selected" : "unselected"}
+                        icon={<ShoppingCart className="w-5 h-5 mr-2" />}
+                        action={handleNavigateToMycart}
+                    />                    
                     <ButtonCustom
                         title="Favoritos"
                         variant="unselected"

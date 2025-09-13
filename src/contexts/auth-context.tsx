@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
                 setLoading(false);
 
-                redirect("/profile");
+                redirect("/perfil");
 
                 toast("Sucesso!!!", {
                     description: "Login realizado com sucesso",

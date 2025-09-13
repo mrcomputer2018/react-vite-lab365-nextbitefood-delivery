@@ -1,12 +1,15 @@
 import { assets } from "@/assets/assets";
 import { Heart, MapPin, Search, ShoppingCart } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 export default function HeaderDashboard() {
+    const location = useLocation();
+
     return (
         <header className="w-full py-4 px-4 border-b border-gray-200 flex flex-row justify-between items-center bg-gray-100">
-            <div className="flex flex-row">
-                <span>dashboard {">"} </span>
-                <span className="font-bold">perfil</span>
+            <div className="flex flex-row gap-1">
+                <span>dashboard {">"}</span>
+                <span className="font-bold">{location.pathname.split("/")[1]}</span>
             </div>
             <div className="flex flex-row items-center justify-center gap-2">
                 <MapPin className="h-5 w-5 text-gray-500" />

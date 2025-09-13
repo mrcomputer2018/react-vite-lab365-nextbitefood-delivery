@@ -13,7 +13,7 @@ export default function SignInPage() {
     const { user } = useAuth();
 
     if (user) {
-        return <Navigate to="/profile" replace />;
+        return <Navigate to="/perfil" replace />;
     }
    
     return (
