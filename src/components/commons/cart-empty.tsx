@@ -2,7 +2,7 @@ import { ShoppingCart } from "lucide-react";
 
 export default function CartEmpty() {
     return (
-        <section className="w-full h-screen mx-auto p-6 bg-gray-100">
+        <section className="w-full min-h-screen mx-auto p-6 bg-gray-100">
             <div className="flex flex-row items-center gap-3 mb-6 ">
                 <ShoppingCart className="w-8 h-8 text-green-600" />
                 <h2 className="text-3xl font-bold text-gray-800">
