@@ -14,7 +14,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 {/* Rota Publicas */}
-                <Route path="/" element={<Home />} /> 
+                <Route path="/" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="*" element={<NotFound />} />
@@ -28,7 +28,7 @@ export default function App() {
                         </PrivateRoute>
                     }
                 >
-                    <Route index element={<ProfilePage/>} />
+                    <Route index element={<ProfilePage />} />
                     <Route path="perfil" element={<ProfilePage />} />
                 </Route>
 
@@ -40,19 +40,10 @@ export default function App() {
                         </PrivateRoute>
                     }
                 >
-                    <Route index element={<Mycart/>} />
+                    <Route index element={<Mycart />} />
                 </Route>
 
-                <Route
-                    path="/restaurantes"
-                    element={
-                        <PrivateRoute>
-                            <DashboardLayout />
-                        </PrivateRoute>
-                    }
-                >
-                    <Route index element={<RestaurantsPage />} />
-                </Route>
+                <Route path="/restaurantes" element={<RestaurantsPage />} />
             </Routes>
         </BrowserRouter>
     );
