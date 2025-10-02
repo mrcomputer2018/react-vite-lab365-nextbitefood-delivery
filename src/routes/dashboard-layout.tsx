@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function DashboardLayout() {
     return (
-        <div className="flex flex-row items-start justify-start h-screen w-full">
+        <main className="flex flex-row items-start justify-start h-screen w-full">
             <Sidebar />
 
             <div className="w-full">
@@ -12,6 +12,6 @@ export default function DashboardLayout() {
                 
                 <Outlet />
             </div>
-        </div>
+        </main>
     );
 }

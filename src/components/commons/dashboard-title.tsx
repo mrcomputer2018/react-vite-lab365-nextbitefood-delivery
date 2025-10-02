@@ -4,7 +4,6 @@ import { tv } from "tailwind-variants";
 interface DashboardTitleProps extends HtmlHTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
     title?: string;
-    subtitle?: string;
     size?: "small" | "large" | "extralarge";
 }
 
@@ -25,7 +24,6 @@ const dashboardTitleVariants = tv({
 export default function DashboardTitle({
     children,
     title,
-    subtitle,
     size,
     ...props
 }: DashboardTitleProps) {
@@ -34,9 +32,6 @@ export default function DashboardTitle({
             <h2 className={dashboardTitleVariants({ size })} {...props}>
                 {title || children}
             </h2>
-            {subtitle && (
-                <small className="text-gray-600 block mt-1">{subtitle}</small>
-            )}
         </div>
     );
 }

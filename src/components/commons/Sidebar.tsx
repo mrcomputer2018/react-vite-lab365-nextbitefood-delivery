@@ -79,8 +79,6 @@ export default function Sidebar() {
                     action={handleLogout}
                     icon={<LogOutIcon className="w-5 h-5 mr-2" />}
                     variant="gradient"
-                    width="w-full"
-                    alignment="items-center justify-start"
                 />
             </div>
         </aside>

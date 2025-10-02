@@ -7,7 +7,7 @@ interface ButtonCustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     title: string;
     action?: () => void;
     icon?: React.ReactNode;
-    variant?: "selected" | "unselected" | "gradient" | "ghost" | "primary" | "black" | "ghostWhite";
+    variant: "selected" | "unselected" | "gradient" | "ghost" | "primary" | "black" | "ghostWhite";
 };
 
 const buttonVariants = tv({
@@ -16,7 +16,7 @@ const buttonVariants = tv({
         variant: {
             selected: "bg-green-600/10 text-green-600 w-full",
             unselected: "text-[#9A9C9F] hover:bg-green-600/10 hover:text-green-600 w-full",
-            gradient: "bg-gradient-to-r from-green-600 to-blue-800 text-white",
+            gradient: "bg-gradient-to-r from-green-600 to-blue-800 text-white w-full",
             ghost: "bg-transparent text-white hover:opacity-60 font-bold",
             ghostWhite: "bg-twhite text-gray-500 border border-gray-500 hover:opacity-60 font-bold" ,
             primary: "bg-green-600 text-white hover:opacity-80 font-bold elevation-2 justify-center",

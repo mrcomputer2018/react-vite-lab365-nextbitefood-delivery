@@ -43,7 +43,16 @@ export default function App() {
                     <Route index element={<Mycart />} />
                 </Route>
 
-                <Route path="/restaurantes" element={<RestaurantsPage />} />
+                <Route
+                    path="/restaurantes"
+                    element={
+                        <PrivateRoute>
+                            <DashboardLayout />
+                        </PrivateRoute>
+                    }
+                >
+                    <Route index element={<RestaurantsPage />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
