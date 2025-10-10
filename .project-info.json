@@ -1,0 +1,28 @@
+{
+    "name": "NextBite Food",
+    "description": "Food delivery app built with React, TypeScript and Vite",
+    "version": "1.0.0",
+    "author": "Marcelo (@mrcomputer2018)",
+    "keywords": [
+        "react",
+        "typescript",
+        "vite",
+        "food-delivery",
+        "tailwindcss",
+        "radix-ui",
+        "zustand"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mrcomputer2018/react-vite-nextbite-food.git"
+    },
+    "homepage": "https://github.com/mrcomputer2018/react-vite-nextbite-food#readme",
+    "bugs": {
+        "url": "https://github.com/mrcomputer2018/react-vite-nextbite-food/issues"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+    }
+}
