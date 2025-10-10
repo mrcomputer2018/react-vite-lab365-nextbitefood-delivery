@@ -6,6 +6,11 @@ import carousel_3 from "./carousel_3.jpeg";
 import carousel_4 from "./carousel_4.jpeg";
 import imageMaonaMassa from "./image_maonamassa.jpeg";
 import user_image from "./afro.jpg"
+import nonas_kitchen from "./nonas-kitchen-restaurant.jpeg";
+import sakura_sushi from "./sakura-sushi.jpg";
+import taco_loco from "./taco-loco.jpg"
+
+
 
 export const assets = {
     logo,
@@ -15,7 +20,10 @@ export const assets = {
     carousel_3,
     carousel_4,
     imageMaonaMassa,
-    user_image
+    user_image,
+    nonas_kitchen,
+    sakura_sushi,
+    taco_loco
 };
 
 export const carouselImages = [
