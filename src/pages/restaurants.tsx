@@ -1,15 +1,19 @@
+import { assets } from "@/assets/assets";
 import { ButtonFilter } from "@/components/commons/button-filter";
+import CardImage from "@/components/commons/card-image";
 import DashboardSubtitle from "@/components/commons/dashboard-subtitle";
 import DashboardTitle from "@/components/commons/dashboard-title";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { cuisineFilters } from "@/constants/restaurants";
+import { StarIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function RestaurantsPage() {
     const [activeFilter, setActiveFilter] = useState<string>("all");
 
     function handleFilterClick(filterId: string) {
-        setActiveFilter(filterId)
+        setActiveFilter(filterId);
     }
 
     return (
@@ -50,10 +54,17 @@ export default function RestaurantsPage() {
                         Destaques do dia
                     </DashboardTitle>
                     <div>
-                        <Card>
-                            <CardContent>
-                                
+                        <Card className="w-90 overflow-hidden relative cursor-pointer shadow-md hover:shadow-lg hover:elevation-2 hover:scale-[1.03] transition-transform duration-400 ease-in-out">
+                            <CardContent className="absolute w-full flex flex-row justify-between p-3">
+                                <Badge className="mb-2 bg-green-600 font-semibold">
+                                    Top Avaliado
+                                </Badge>
+                                <Badge>
+                                    <StarIcon className="inline mr-1 text-amber-500" size={16}/>
+                                    <span className="text-gray-800 font-semibold">4.8</span>
+                                </Badge>
                             </CardContent>
+                            <CardImage src={assets.nonas_kitchen} alt="" size="large" resizeMode="cover" />
                         </Card>
                     </div>
                 </div>
