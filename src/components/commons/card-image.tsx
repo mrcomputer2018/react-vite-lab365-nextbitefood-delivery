@@ -9,16 +9,26 @@ interface CardImageProps extends ImgHTMLAttributes<HTMLImageElement>{
 }
 
 const ImageVariants = tv({
-    base: "mx-auto"
+    base: "mx-auto",
+    variants: {
+        size: {
+            default:"w-24 h-24 rounded-full shadow-lg",
+            large: "w-full h-46",
+            auto:"w-auto h-auto shadow-lg"
+        }
+    },
+    defaultVariants: {
+        size: "default"
+    }
 })
 
-export default function CardImage({ src, alt, ...props }: CardImageProps) {
+export default function CardImage({ src, alt, size,...props }: CardImageProps) {
     return (
         <div>
             <img
                 src={src}
                 alt={alt}
-                className="w-24 h-24 mx-auto mb-4 rounded-full shadow-lg"
+                className={ImageVariants({size})}
                 {...props}
             />
         </div>
