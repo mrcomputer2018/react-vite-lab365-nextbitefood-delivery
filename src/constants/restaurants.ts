@@ -12,7 +12,7 @@ export const cuisineFilters = [
 
 export const featuredRestaurants = [
     {
-        id: 1,
+        id: "1",
         name: "Nonna's Kitchen",
         image: assets.nonas_kitchen,
         cuisine: "Italiana",
@@ -25,7 +25,7 @@ export const featuredRestaurants = [
         badge: "Top Avaliado",
     },
     {
-        id: 2,
+        id: "2",
         name: "Sakura Sushi",
         image: assets.sakura_sushi,
         cuisine: "Japonesa",
@@ -38,7 +38,7 @@ export const featuredRestaurants = [
         badge: "Mais Pedido",
     },
     {
-        id: 3,
+        id: "3",
         name: "Taco Loco",
         image: assets.taco_loco,
         cuisine: "Mexicana",

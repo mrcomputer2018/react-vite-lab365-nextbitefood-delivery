@@ -1,3 +1,4 @@
+import { FeaturedRestautants } from "@/@types/restaurant-types";
 import { ButtonFilter } from "@/components/commons/button-filter";
 import CardImage from "@/components/commons/card-image";
 import DashboardSubtitle from "@/components/commons/dashboard-subtitle";
@@ -7,12 +8,46 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cuisineFilters, featuredRestaurants } from "@/constants/restaurants";
 import { Clock, MapPin, StarIcon } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function RestaurantsPage() {
     const [activeFilter, setActiveFilter] = useState<string>("all");
+    const [cuisineFiltered, setCuisineFiltered] = useState(featuredRestaurants);
+
+    const navigate = useNavigate();
 
     function handleFilterClick(filterId: string) {
         setActiveFilter(filterId);
+        filterRestaurants();
+    }
+
+    function filterRestaurants() {
+        if (activeFilter === "all") {
+            setCuisineFiltered(featuredRestaurants);
+        } else {
+            const filtered = featuredRestaurants.filter((restaurant) =>
+                restaurant.cuisine
+                    .toLowerCase()
+                    .includes(activeFilter.toLowerCase())
+            );
+            setCuisineFiltered(filtered);
+        }
+    }
+
+    function handleNavigatetoRestaurantDetail(restaurant: FeaturedRestautants) {
+        try {
+            if(!restaurant.id) {
+                console.error("Id do restaurant não encontrado")
+                return
+            }
+            navigate(`/restaurant/${restaurant.id}`, {
+                state: { restaurant }
+            })
+
+        } catch (error) {
+            console.error("Erro ao navegar para o restaurante", error)
+        }
     }
 
     return (
@@ -28,7 +63,7 @@ export default function RestaurantsPage() {
             <div className="bg-white mt-6 flex flex-col justify-start shadow-md p-5 rounded-md space-y-10">
                 <div>
                     <DashboardTitle size="extrasmall" color="secondary">
-                        Filtrar por culinria
+                        Filtrar por culinaria
                     </DashboardTitle>
 
                     <div className="flex flex-row gap-6 mt-4 flex-wrap">
@@ -40,10 +75,9 @@ export default function RestaurantsPage() {
                                         ? "selected"
                                         : "unselected"
                                 }
-                                title={cuisine.name}
                                 onClick={() => handleFilterClick(cuisine.id)}
                             >
-                                todos
+                                {cuisine.name}
                             </ButtonFilter>
                         ))}
                     </div>
@@ -53,8 +87,10 @@ export default function RestaurantsPage() {
                         Destaques do dia
                     </DashboardTitle>
                     <div className="flex flex-row gap-6 flex-wrap justify-center">
-                        {featuredRestaurants.map((restaurant) => (
-                            <Card className="w-90 overflow-hidden relative cursor-pointer shadow-md hover:shadow-lg hover:elevation-2 hover:scale-[1.03] transition-transform duration-400 ease-in-out">
+                        {cuisineFiltered.map((restaurant) => (
+                            <Card 
+                            onClick={() => handleNavigatetoRestaurantDetail(restaurant)}
+                            className="w-90 overflow-hidden relative cursor-pointer shadow-md hover:shadow-lg hover:elevation-2 hover:scale-[1.03] transition-transform duration-400 ease-in-out">
                                 <CardContent className="absolute w-full flex flex-row justify-between p-3">
                                     <Badge className="mb-2 bg-green-600 font-semibold">
                                         {restaurant.badge}
