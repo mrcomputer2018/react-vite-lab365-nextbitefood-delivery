@@ -41,7 +41,7 @@ export default function RestaurantsPage() {
                 console.error("Id do restaurant não encontrado")
                 return
             }
-            navigate(`/restaurant/${restaurant.id}`, {
+            navigate(`/restaurantes/${restaurant.id}`, {
                 state: { restaurant }
             })
 
