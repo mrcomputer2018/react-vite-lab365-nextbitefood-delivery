@@ -8,6 +8,7 @@ interface ButtonCustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     action?: () => void;
     icon?: React.ReactNode;
     variant: "selected" | "unselected" | "gradient" | "ghost" | "primary" | "black" | "ghostWhite";
+    alignment?: "center" | "start";
 };
 
 const buttonVariants = tv({
@@ -21,10 +22,14 @@ const buttonVariants = tv({
             ghostWhite: "bg-twhite text-gray-500 border border-gray-500 hover:opacity-60 font-bold" ,
             primary: "bg-green-600 text-white hover:opacity-80 font-bold elevation-2 justify-center",
             black: "bg-zinc-800 text-white hover:opacity-80 elevation-2 justify-center"
-        }
+        },
+        alignment : {
+            center: "justify-center",
+            start: "justify-start"
+        },
     },
     defaultVariants: {
-        variant: "selected"
+        variant: "selected",
     }
 })
 
@@ -33,6 +38,7 @@ export default function ButtonCustom({
     action,
     icon,
     variant,
+    alignment,
     ...props
 }: ButtonCustomProps) {
     const { loading } = useAuth();
@@ -40,7 +46,7 @@ export default function ButtonCustom({
     return (
         <button
             onClick={action}
-            className={buttonVariants({variant})}
+            className={buttonVariants({variant, alignment})}
             {...props}
         >
             {icon}

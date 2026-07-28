@@ -144,9 +144,8 @@ export default function LoginForm() {
                 <div>
                     <ButtonCustom
                         title="Entrar"
-                        width="w-full"
                         variant="gradient"
-                        alignment="justify-center"
+                        alignment="center"
                     />
                 </div>
             </form>

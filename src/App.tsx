@@ -8,6 +8,7 @@ import DashboardLayout from "./routes/dashboard-layout";
 import ProfilePage from "./pages/profile";
 import Mycart from "./pages/my-cart";
 import RestaurantsPage from "./pages/restaurants";
+import RestaurantDetail from "./pages/restaurant-detail";
 
 export default function App() {
     return (
@@ -52,6 +53,17 @@ export default function App() {
                     }
                 >
                     <Route index element={<RestaurantsPage />} />
+                </Route>
+
+                <Route
+                    path="/restaurantes/:id"
+                    element={
+                        <PrivateRoute>
+                            <DashboardLayout />
+                        </PrivateRoute>
+                    }
+                >
+                    <Route index element={<RestaurantDetail />} />
                 </Route>
             </Routes>
         </BrowserRouter>

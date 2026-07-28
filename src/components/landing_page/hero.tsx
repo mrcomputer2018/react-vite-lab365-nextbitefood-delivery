@@ -20,12 +20,9 @@ export default function Hero() {
                     ajuda a escolher o que comer.
                 </p>
 
-                <ButtonCustom
-                    title="Baixe o app"
-                    variant="primary"
-                    width="w-[200px]"
-                    alignment="justify-center"
-                />
+                <div>
+                    <ButtonCustom title="Baixe o app" variant="primary" />
+                </div>
             </div>
         </section>
     );
